@@ -52,10 +52,12 @@ def fetch_weather_alerts(zone):
                 if alert["properties"]["messageType"] == "Alert" and check_date(date_str):
                     print(alert["properties"]["messageType"] + ' for ' + alert["properties"]["areaDesc"])
                     print(alert["properties"]["headline"])
+                    message = alert["properties"]["messageType"] + ' for ' + alert["properties"]["areaDesc"] + '\n' + alert["properties"]["headline"]
+                    return message
         else:
             print("No alerts at this time.")
     else:
         print("Error fetching data:", response.status_code)
 
 # Fetch alerts for specific Washington zones
-data = fetch_weather_alerts(zone="WAZ516,WAZ517,WAZ510")
+# fetch_weather_alerts(zone="WAZ516,WAZ517,WAZ510")
