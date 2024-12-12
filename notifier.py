@@ -1,5 +1,14 @@
 import smtplib
 
+users = [
+    {
+        "telephoneNumber": "3603019197",
+        "carrier": "googlefi",
+        "active": True
+    }
+]
+
+
 # Declare text carriers
 carriers = {
 	'att':    '@txt.att.net',
@@ -12,7 +21,11 @@ carriers = {
 # Create message function
 def send(message):
     # Send message to to_number from gmail address
-    to_number = f"3603019197{carriers['googlefi']}"
+    # to_number = f"3603019197{carriers['googlefi']}"
+
+    for user in users:
+        if user['active']:
+            to_number = f"{user['telephoneNumber']}{carriers[user['carrier']]}"
 
     # Gmail account and password
     auth = ('straitsurf@gmail.com', 'ubxdboegmwesflzg')
