@@ -15,7 +15,7 @@ active = True
 # Schedule the alert function to run every hour
 if active:
     alert()
-    schedule.every(5).minutes.do(alert)
+    schedule.every().hour.do(alert)
 
 while True:
     schedule.run_pending()
