@@ -14,6 +14,7 @@ active = True
 
 # Schedule the alert function to run every hour
 if active:
+    send("Weather alert service is active")
     alert()
     schedule.every().hour.do(alert)
 
